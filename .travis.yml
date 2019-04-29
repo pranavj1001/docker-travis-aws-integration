@@ -8,4 +8,4 @@ before_install:
   - docker build -t pranavj1001/docker-travis-aws-integration -f Dockerfile.dev .
 
 script:
-  - docker run pranavj1001/docker-travis-aws-integration npm run test -- --converge
+  - docker run pranavj1001/docker-travis-aws-integration npm run test -- --converage
