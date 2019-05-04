@@ -9,3 +9,16 @@ before_install:
 
 script:
   - docker run pranavj1001/docker-travis-aws-integration npm run test -- --coverage
+
+deploy:
+  provider: elasticbeanstalk
+  region: "us-east-2"
+  app: "docker-travis-aws-integration"
+  env: "DockerTravisAwsIntegration-env"
+  bucket_name: "elasticbeanstalk-us-east-2-087431259218"
+  bucket_path: "docker-travis-aws-integration"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key:
+    secure: "$AWS_SECRET_KEY"
